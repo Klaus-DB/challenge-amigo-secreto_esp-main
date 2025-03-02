@@ -28,5 +28,5 @@ function mostrarAmigo() {
 }
 
 function sortearAmigo(){
-    
+
 }
