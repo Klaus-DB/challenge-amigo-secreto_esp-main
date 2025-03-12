@@ -11,22 +11,33 @@ function agregarAmigo() {
     amigo.push(nombreAmigo);
     inputAmigo.value = "";
     inputAmigo.focus();
-    mostrarAmigo();
+    renderizarAmigo();
      
 }
 
-function mostrarAmigo() {
+function renderizarAmigo() {
     let listaAmigos = document.getElementById("listaAmigos");
     listaAmigos.innerHTML = "";
 
     for(let i = 0; i < amigo.length; i++){
         let item = document.createElement ("li");
-        item.textContent = amigo(i);
+        item.textContent = amigo[i];
         listaAmigos.appendChild(item);
 
     }
 }
 
 function sortearAmigo(){
+    if(amigo.length === 0){
+        alert("Debes agregar al menos 2 amigos");
+        return;
+    }
+    let amigoSorteado = amigo[Math.floor(Math.random() * amigo.length)];
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `El amigo sorteado es: ${amigoSorteado}`;
 
+    let limpiarLista = document.getElementById("listaAmigos");
+    limpiarLista.innerHTML = "";
+    amigo = [];
+    
 }
